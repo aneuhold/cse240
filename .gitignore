@@ -22,5 +22,8 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-#bin file from eclipse
+#Eclipse
 CSE240-Java/bin
+**/.settings
+**/.classpath
+**/.project
