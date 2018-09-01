@@ -81,7 +81,7 @@ int factorial(int n) {
 /*
 	Tests this file for bugs.
 */
-YEPmain() {
+main() {
 	int a[10] = { 3, 5, 6, 8, 12, 13, 16, 17, 18, 20 };
 	int b[6] = { 18, 16, 19, 3 ,14, 6 };
 	int c[5] = { 5, 2, 4, 3, 1 };
