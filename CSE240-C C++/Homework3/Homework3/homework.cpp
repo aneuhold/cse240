@@ -1,22 +1,24 @@
-/*	
-	A C file for the first step of homework 2. It goes over a few basic static
-	methods such as printing an integer array and selection sort.
-	Homework 2 Part 1
+/*
+	C++ class for the first step of homework 3. It goes over a few basic
+	functions such as printing an integer array and selection sort. This
+	is the section that implements the Homework class.
+	Homework 3 Part 1
 	Completion time: 1 hour
 
 	author: Anton Neuhold
-	version: 1.0
+	version: 1.1
 */
-#include <stdio.h>
+
+#include "homework.h"
 
 /*
 	Initializes the array passed into the function with 0s in even positions
 	and 1s in odd positions.
 	int_array: a pointer to the array to be initialized
-	size: the size of the array
+	array_size : the size of the array
 */
-void initialize_array(int *int_array, int size) {
-	for (int i = 0; i < size; i++) {
+void Homework::initialize_array(int *int_array, int array_size) {
+	for (int i = 0; i < array_size; i++) {
 		if (i % 2 == 0) {
 			int_array[i] = 0;
 		}
@@ -32,23 +34,23 @@ void initialize_array(int *int_array, int size) {
 	int_array: a pointer to the array to be printed
 	size: the size of the array
 */
-void print_array(int *int_array, int size) {
+void Homework::print_array(int *int_array, int size) {
 	for (int i = 0; i < size; i++) {
-		printf("%d", int_array[i]);
+		cout << int_array[i];
 		if (i < size - 1) {
-			printf(", ");
+			cout << ", ";
 		}
 	}
-	printf("\n");
+	cout << endl;
 }
 
 /*
 	Sorts the integer array passed into the function with the selection sort
-	algorithm from biggest to smallest values. 
+	algorithm from biggest to smallest values.
 	int_array: a pointer to the array to be sorted
 	size: the size of the array
 */
-void selection_sort(int *int_array, int size) {
+void Homework::selection_sort(int *int_array, int size) {
 	int max, temp;
 	for (int i = 0; i < size - 1; i++) {
 		max = i;
@@ -66,7 +68,7 @@ void selection_sort(int *int_array, int size) {
 	n: the integer to calculate the factorial of
 	returns: the integer representing the factorial
 */
-int factorial(int n) {
+int Homework::factorial(int n) {
 	if (n <= 0) {
 		return 0;
 	}
@@ -76,28 +78,4 @@ int factorial(int n) {
 	else {
 		return n * factorial(n - 1);
 	}
-}
-
-/*
-	Tests this file for bugs.
-*/
-NOPEmain() {
-	int a[10] = { 3, 5, 6, 8, 12, 13, 16, 17, 18, 20 };
-	int b[6] = { 18, 16, 19, 3 ,14, 6 };
-	int c[5] = { 5, 2, 4, 3, 1 };
-
-	// testing initialize_array
-	print_array(a, 10); // print: 3, 5, 6, 8, 12, 13, 16, 17, 18, 20
-	initialize_array(a, 10);
-	print_array(a, 10); // print: 0, 1, 0, 1, 0, 1, 0, 1, 0, 1
-	// testing initialize_array
-	print_array(b, 6); // print: 18, 16, 19, 3 ,14, 6
-	selection_sort(b, 6);
-	print_array(b, 6); // print: 19, 18, 16, 14, 6, 3
-	// testing factorial
-	printf("Factorail of 5 - %d\n", factorial(5)); //print: 120
-	c[0] = factorial(c[0]);
-	c[1] = factorial(c[2]);
-	print_array(c, 5); // print: 120, 24, 4, 3, 1
-	return 0;
 }

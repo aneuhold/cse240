@@ -81,9 +81,9 @@ void theatre_seating_init(int rowNum, int columnNum,
 	struct theatre_seating *t) {
 	t->num_rows = rowNum;
 	t->num_cols = columnNum;
-	t->seating = (struct patron **) malloc(rowNum * sizeof(struct patron *));
+	t->seating = (struct patron **) malloc(rowNum * sizeof(struct patron));
 	for (int row = 0; row < rowNum; row++) {
-		t->seating[row] = (struct patron *) malloc(
+		t->seating[row] = (struct patron **) malloc(
 			columnNum * sizeof(struct patron));
 		for (int col = 0; col < columnNum; col++) {
 			struct patron temp_patron;
@@ -144,7 +144,7 @@ int assign_patron_at(int row, int col, struct theatre_seating *t,
 void theatre_seating_to_string(struct theatre_seating *t) {
 	for (int row = 0; row < t->num_rows; row++) {
 		for (int col = 0; col < t->num_cols; col++) {
-			patron_to_string(&(t->seating[row][col]));
+			patron_to_string(&t->seating[row][col]);
 			printf(" ");
 		}
 		printf("\n");
