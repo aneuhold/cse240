@@ -10,6 +10,17 @@
 
 #include "homework.h"
 
+int hasSum(int *nums, int n, int x) {
+	for (int scan = 0; scan < n; scan++) {
+		for (int scanAdd = scan + 1; scanAdd < n; scanAdd++) {
+			if (nums[scan] + nums[scanAdd] == x) {
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
 int main() {
 	int a[10] = { 3, 5, 6, 8, 12, 13, 16, 17, 18, 20 };
 	int b[6] = { 18, 16, 19, 3 ,14, 6 };
