@@ -81,7 +81,7 @@ void theatre_seating_init(int rowNum, int columnNum,
 	struct theatre_seating *t) {
 	t->num_rows = rowNum;
 	t->num_cols = columnNum;
-	t->seating = (struct patron **) malloc(rowNum * sizeof(struct patron));
+	t->seating = (struct patron **) malloc(rowNum * sizeof(struct patron *));
 	for (int row = 0; row < rowNum; row++) {
 		t->seating[row] = (struct patron **) malloc(
 			columnNum * sizeof(struct patron));
